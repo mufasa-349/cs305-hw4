@@ -1,0 +1,40 @@
+Golden ile Karşılaştırma Talimatları:
+
+1. Server'a bağlanın:
+   ssh mustafa.bozyel@cs305.sabanciuniv.edu
+
+2. MIT Scheme'i başlatın:
+   mit-scheme
+
+3. Golden dosyasını yükleyin:
+   (load "/home/osmankara/cs305/goldens/hw4_golden_v2.com")
+
+4. Örnek programı tanımlayın:
+   (define example-program
+     '(
+       (
+         (f (x) (= (* x 3)))
+         (g (t u) (= (+ t v)))
+         (f (y) (= (* y y)))
+         (k (a b) (= (+ (* a b) c)))
+       )
+       (
+         (calculate (+ (f x) (h y)))
+         (calculate (+ (f (o y)) (((x (b l)) y)) ((c b)))))
+         (calculate (+ (g a)))
+         (calculate (+ ((g a))))
+       )
+     ))
+
+5. Golden ile test edin:
+   (find-redefined-functions example-program)
+   (find-undefined-parameters example-program)
+   (find-arity-contradictions example-program)
+   (find-missing-function-names example-program)
+   (find-undefined-functions example-program)
+
+6. Kendi dosyanızı yükleyin (dosyayı server'a kopyalayın):
+   (load "mustafa.bozyel-hw4.scm")
+
+7. Aynı testleri tekrar çalıştırın ve sonuçları karşılaştırın.
+
